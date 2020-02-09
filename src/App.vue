@@ -12,6 +12,7 @@
           @keyup.enter="addTodo"
         />
       </header>
+      <!-- hide with v-cloack while mounting -->
       <section class="main" v-show="todos.length" v-cloak>
         <input
           id="toggle-all"
@@ -19,6 +20,7 @@
           type="checkbox"
           v-model="allDone"
         />
+        <!-- css on toggle all and label -->
         <label for="toggle-all"></label>
         <ul class="todo-list">
           <li
@@ -82,6 +84,7 @@
     </section>
     <footer class="info">
       <p>Double-click to edit a todo</p>
+      <p> Based on TodoMVC </p>
     </footer>
   </div>
 </template>
@@ -138,6 +141,7 @@ export function filterCompletedTodos(todos: ITodo[]) {
   // http://vuejs.org/guide/custom-directive.html
   directives: {
     "todo-focus": function(el, binding) {
+      // only focus on item double clicked
       if (binding.value) {
         el.focus();
       }
